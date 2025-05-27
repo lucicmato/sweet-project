@@ -76,23 +76,23 @@ thead,
 tr,
 th,
 td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 
 /***********************
 	-	BASICS 	-
 ***********************/
 html {
-  overflow-x: hidden;
-  padding: 0 !important;
-  background-image: url(../images/tiles/bgtile.jpg);
-  margin: 0px !important;
+    overflow-x: hidden;
+    padding: 0 !important;
+    background-image: url(../images/tiles/bgtile.jpg);
+    margin: 0px !important;
 }
 
 /*********************************************************************************************
@@ -102,9 +102,9 @@ html {
 /*	-	THE BANNER CONTAINER (Padding, Shadow, Border etc. )	-	*/
 
 .fullwidthbanner-container {
-  width: 100% !important;
-  position: relative;
-  padding: 0;
-  max-height: 450px !important;
-  overflow: hidden;
+    width: 100% !important;
+    position: relative;
+    padding: 0;
+    max-height: 450px !important;
+    overflow: hidden;
 }

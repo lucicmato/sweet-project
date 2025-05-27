@@ -5,14 +5,14 @@
  * @author ThemePunch
  **************************************************************************/
 
-(function ($, undefined) {
+(function($, undefined) {
   ////////////////////////////////////////
   // THE REVOLUTION PLUGIN STARTS HERE //
   ///////////////////////////////////////
 
   $.fn.extend({
     // OUR PLUGIN HERE :)
-    revolution: function (options) {
+    revolution: function(options) {
       ////////////////////////////////
       // SET DEFAULT VALUES OF ITEM //
       ////////////////////////////////
@@ -48,9 +48,9 @@
         soloArrowRightVOffset: 0,
 
         touchenabled: 'on', // Enable Swipe Function : on/off
-        onHoverStop: 'on', // Stop Banner Timet at Hover on Slide on/off
+        onHoverStop: 'on', // Stop Banner Timet at Hover on Banner on/off
 
-        stopAtSlide: -1, // Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+        stopAtSlide: -1, // Stop Timer if Banner "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
         stopAfterLoops: -1, // Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
 
         hideCaptionAtLimit: 0, // It Defines if a caption should be shown under a Screen Resolution ( Basod on The Width of Browser)
@@ -63,7 +63,7 @@
 
       options = $.extend({}, $.fn.revolution.defaults, options);
 
-      return this.each(function () {
+      return this.each(function() {
         var opt = options;
         var container = $(this);
         if (!container.hasClass('revslider-initialised')) {
@@ -84,8 +84,8 @@
           if (versionTop == 1 && versionMinor < 7) {
             container.html(
               '<div style="text-align:center; padding:40px 0px; font-size:20px; color:#992222;"> The Current Version of jQuery:' +
-                version +
-                ' <br>Please update your jQuery Version to min. 1.7 in Case you wish to use the Revolution Slider Plugin</div>'
+              version +
+              ' <br>Please update your jQuery Version to min. 1.7 in Case you wish to use the Revolution Slider Plugin</div>',
             );
           }
 
@@ -101,10 +101,10 @@
 
           // LOAD THE YOUTUBE API IF NECESSARY
 
-          container.find('.caption').each(function () {
+          container.find('.caption').each(function() {
             $(this).addClass('tp-caption');
           });
-          container.find('.tp-caption iframe').each(function () {
+          container.find('.tp-caption iframe').each(function() {
             try {
               if ($(this).attr('src').indexOf('you') > 0) {
                 var s = document.createElement('script');
@@ -112,11 +112,12 @@
                 var before = document.getElementsByTagName('script')[0];
                 before.parentNode.insertBefore(s, before);
               }
-            } catch (e) {}
+            } catch (e) {
+            }
           });
 
           // LOAD THE VIMEO API
-          container.find('.tp-caption iframe').each(function () {
+          container.find('.tp-caption iframe').each(function() {
             try {
               if ($(this).attr('src').indexOf('vim') > 0) {
                 var f = document.createElement('script');
@@ -124,7 +125,8 @@
                 var before = document.getElementsByTagName('script')[0];
                 before.parentNode.insertBefore(f, before);
               }
-            } catch (e) {}
+            } catch (e) {
+            }
           });
 
           // SHUFFLE MODE
@@ -217,7 +219,7 @@
           container.find('ul').css({ display: 'none' });
 
           // IF IMAGES HAS BEEN LOADED
-          container.waitForImages(function () {
+          container.waitForImages(function() {
             // PREPARE THE SLIDES
             container.find('ul').css({ display: 'block' });
             prepareSlides(container, opt);
@@ -227,7 +229,7 @@
             if (opt.slideamount > 1) createThumbs(container, opt);
             if (opt.slideamount > 1) createArrows(container, opt);
 
-            $('#unvisible_button').click(function () {
+            $('#unvisible_button').click(function() {
               opt.navigationArrows = $('.selectnavarrows').val();
               opt.navigationType = $('.selectnavtype').val();
               opt.navigationStyle = $('.selectnavstyle').val();
@@ -245,11 +247,11 @@
 
             if (opt.hideThumbs > 0) hideThumbs(container, opt);
 
-            container.waitForImages(function () {
+            container.waitForImages(function() {
               // START THE FIRST SLIDE
 
               container.find('.tp-loader').fadeOut(600);
-              setTimeout(function () {
+              setTimeout(function() {
                 swapSlide(container, opt);
                 // START COUNTDOWN
                 if (opt.slideamount > 1) countDown(container, opt);
@@ -259,7 +261,7 @@
           });
 
           // IF RESIZED, NEED TO STOP ACTUAL TRANSITION AND RESIZE ACTUAL IMAGES
-          $(window).resize(function () {
+          $(window).resize(function() {
             if ($('body').find(container) != 0)
               if (container.outerWidth(true) != opt.width) {
                 containerResized(container, opt);
@@ -270,8 +272,8 @@
     },
 
     // METHODE PAUSE
-    revpause: function (options) {
-      return this.each(function () {
+    revpause: function(options) {
+      return this.each(function() {
         var container = $(this);
         container.data('conthover', 1);
         container.data('conthover-changed', 1);
@@ -282,8 +284,8 @@
     },
 
     // METHODE RESUME
-    revresume: function (options) {
-      return this.each(function () {
+    revresume: function(options) {
+      return this.each(function() {
         var container = $(this);
         container.data('conthover', 0);
         container.data('conthover-changed', 1);
@@ -293,14 +295,14 @@
 
         bt.animate(
           { width: '100%' },
-          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
         );
       });
     },
 
     // METHODE NEXT
-    revnext: function (options) {
-      return this.each(function () {
+    revnext: function(options) {
+      return this.each(function() {
         // CATCH THE CONTAINER
         var container = $(this);
         container.parent().find('.tp-rightarrow').click();
@@ -308,8 +310,8 @@
     },
 
     // METHODE RESUME
-    revprev: function (options) {
-      return this.each(function () {
+    revprev: function(options) {
+      return this.each(function() {
         // CATCH THE CONTAINER
         var container = $(this);
         container.parent().find('.tp-leftarrow').click();
@@ -317,13 +319,13 @@
     },
 
     // METHODE LENGTH
-    revmaxslide: function (options) {
+    revmaxslide: function(options) {
       // CATCH THE CONTAINER
       return $(this).find('>ul:first-child >li').length;
     },
 
     // METHODE CURRENT
-    revcurrentslide: function (options) {
+    revcurrentslide: function(options) {
       // CATCH THE CONTAINER
       var container = $(this);
       var bt = container.parent().find('.tp-bannertimer');
@@ -332,7 +334,7 @@
     },
 
     // METHODE CURRENT
-    revlastslide: function (options) {
+    revlastslide: function(options) {
       // CATCH THE CONTAINER
       var container = $(this);
       var bt = container.parent().find('.tp-bannertimer');
@@ -341,8 +343,8 @@
     },
 
     // METHODE JUMP TO SLIDE
-    revshowslide: function (slide) {
-      return this.each(function () {
+    revshowslide: function(slide) {
+      return this.each(function() {
         // CATCH THE CONTAINER
         var container = $(this);
         container.data('showus', slide);
@@ -373,7 +375,7 @@
   //	CONTAINER RESIZED	//
   /////////////////////////
   function containerResized(container, opt) {
-    container.find('.defaultimg').each(function (i) {
+    container.find('.defaultimg').each(function(i) {
       setSize($(this), opt);
 
       opt.height = Math.round(opt.startheight * (opt.width / opt.startwidth));
@@ -383,7 +385,8 @@
 
       try {
         container.parent().find('.tp-bannershadow').css({ width: opt.width });
-      } catch (e) {}
+      } catch (e) {
+      }
 
       var actsh = container.find('>ul >li:eq(' + opt.act + ') .slotholder');
       var nextsh = container.find('>ul >li:eq(' + opt.next + ') .slotholder');
@@ -394,7 +397,7 @@
       setCaptionPositions(container, opt);
 
       var nextli = container.find('>ul >li:eq(' + opt.next + ')');
-      container.find('.tp-caption').each(function () {
+      container.find('.tp-caption').each(function() {
         $(this).stop(true, true);
       });
       animateTheCaptions(nextli, opt);
@@ -415,11 +418,11 @@
         bt.css({ width: '0%' });
         bt.animate(
           { width: '100%' },
-          { duration: opt.delay - 100, queue: false, easing: 'linear' }
+          { duration: opt.delay - 100, queue: false, easing: 'linear' },
         );
       }
       clearTimeout(opt.thumbtimer);
-      opt.thumbtimer = setTimeout(function () {
+      opt.thumbtimer = setTimeout(function() {
         moveSelectedThumb(container);
         setBulPos(container, opt);
       }, 200);
@@ -448,8 +451,8 @@
     if (opt.navigationType == 'thumb' || opt.navsecond == 'both') {
       cap.append(
         '<div class="tp-bullets tp-thumbs ' +
-          opt.navigationStyle +
-          '"><div class="tp-mask"><div class="tp-thumbcontainer"></div></div></div>'
+        opt.navigationStyle +
+        '"><div class="tp-mask"><div class="tp-thumbcontainer"></div></div></div>',
       );
     }
     var bullets = cap.find('.tp-bullets.tp-thumbs .tp-mask .tp-thumbcontainer');
@@ -460,7 +463,7 @@
     bup.parent().width(opt.thumbWidth * opt.thumbAmount);
     bup.parent().height(opt.thumbHeight);
 
-    container.find('>ul:first >li').each(function (i) {
+    container.find('>ul:first >li').each(function(i) {
       var li = container.find('>ul:first >li:eq(' + i + ')');
       if (li.data('thumb') != undefined) var src = li.data('thumb');
       else var src = li.find('img:first').attr('src');
@@ -471,7 +474,7 @@
     var minwidth = 100;
 
     // ADD THE BULLET CLICK FUNCTION HERE
-    bullets.find('.bullet').each(function (i) {
+    bullets.find('.bullet').each(function(i) {
       var bul = $(this);
 
       if (i == opt.slideamount - 1) bul.addClass('last');
@@ -480,7 +483,7 @@
       bul.height(opt.thumbHeight);
       if (minwidth > bul.outerWidth(true)) minwidth = bul.outerWidth(true);
 
-      bul.click(function () {
+      bul.click(function() {
         if (opt.transition == 0 && bul.index() != opt.act) {
           opt.next = bul.index();
           callingNewSlide(opt, container);
@@ -497,13 +500,13 @@
     // SLIDE TO POSITION  //
     ////////////////////////
     if (thumbconwidth < max) {
-      $(document).mousemove(function (e) {
+      $(document).mousemove(function(e) {
         $('body').data('mousex', e.pageX);
       });
 
       // ON MOUSE MOVE ON THE THUMBNAILS EVERYTHING SHOULD MOVE :)
 
-      bullets.parent().mouseenter(function () {
+      bullets.parent().mouseenter(function() {
         var $this = $(this);
         $this.addClass('over');
         var offset = $this.offset();
@@ -524,7 +527,7 @@
         moveThumbSliderToPosition($this, pos, 200);
       });
 
-      bullets.parent().mousemove(function () {
+      bullets.parent().mousemove(function() {
         var $this = $(this);
 
         //if (!$this.hasClass("over")) {
@@ -549,7 +552,7 @@
         //}
       });
 
-      bullets.parent().mouseleave(function () {
+      bullets.parent().mouseleave(function() {
         var $this = $(this);
         $this.removeClass('over');
         moveSelectedThumb(container);
@@ -605,19 +608,19 @@
 
     var bullets = container.parent().find('.tp-bullets');
 
-    container.find('>ul:first >li').each(function (i) {
+    container.find('>ul:first >li').each(function(i) {
       var src = container.find('>ul:first >li:eq(' + i + ') img:first').attr('src');
       bullets.append('<div class="bullet"></div>');
       var bullet = bullets.find('.bullet:first');
     });
 
     // ADD THE BULLET CLICK FUNCTION HERE
-    bullets.find('.bullet').each(function (i) {
+    bullets.find('.bullet').each(function(i) {
       var bul = $(this);
       if (i == opt.slideamount - 1) bul.addClass('last');
       if (i == 0) bul.addClass('first');
 
-      bul.click(function () {
+      bul.click(function() {
         var sameslide = false;
         if (opt.navigationArrows == 'withbullet' || opt.navigationArrows == 'nexttobullets') {
           if (bul.index() - 1 == opt.act) sameslide = true;
@@ -667,7 +670,7 @@
     container
       .parent()
       .find('.tp-rightarrow')
-      .click(function () {
+      .click(function() {
         if (opt.transition == 0) {
           if (container.data('showus') != undefined && container.data('showus') != -1)
             opt.next = container.data('showus') - 1;
@@ -683,7 +686,7 @@
     container
       .parent()
       .find('.tp-leftarrow')
-      .click(function () {
+      .click(function() {
         if (opt.transition == 0) {
           opt.next = opt.next - 1;
           opt.leftarrowpressed = 1;
@@ -704,7 +707,7 @@
     if (opt.touchenabled == 'on')
       container.swipe({
         data: container,
-        swipeRight: function () {
+        swipeRight: function() {
           if (opt.transition == 0) {
             opt.next = opt.next - 1;
             opt.leftarrowpressed = 1;
@@ -712,7 +715,7 @@
             callingNewSlide(opt, container);
           }
         },
-        swipeLeft: function () {
+        swipeLeft: function() {
           if (opt.transition == 0) {
             opt.next = opt.next + 1;
             if (opt.next == opt.slideamount) opt.next = 0;
@@ -749,58 +752,58 @@
     ca.addClass('hidearrows');
 
     bullets.hover(
-      function () {
+      function() {
         bullets.addClass('hovered');
         clearTimeout(container.data('hidethumbs'));
         bullets.removeClass('hidebullets');
         ca.removeClass('hidearrows');
       },
-      function () {
+      function() {
         bullets.removeClass('hovered');
         if (!container.hasClass('hovered') && !bullets.hasClass('hovered'))
           container.data(
             'hidethumbs',
-            setTimeout(function () {
+            setTimeout(function() {
               bullets.addClass('hidebullets');
               ca.addClass('hidearrows');
-            }, opt.hideThumbs)
+            }, opt.hideThumbs),
           );
-      }
+      },
     );
 
     ca.hover(
-      function () {
+      function() {
         bullets.addClass('hovered');
         clearTimeout(container.data('hidethumbs'));
         bullets.removeClass('hidebullets');
         ca.removeClass('hidearrows');
       },
-      function () {
+      function() {
         bullets.removeClass('hovered');
         /*if (!container.hasClass("hovered") && !bullets.hasClass("hovered"))
 					container.data('hidethumbs', setTimeout(function() {
 							bullets.addClass("hidebullets");
 							ca.addClass("hidearrows");
 					},opt.hideThumbs));*/
-      }
+      },
     );
 
-    container.on('mouseenter', function () {
+    container.on('mouseenter', function() {
       container.addClass('hovered');
       clearTimeout(container.data('hidethumbs'));
       bullets.removeClass('hidebullets');
       ca.removeClass('hidearrows');
     });
 
-    container.on('mouseleave', function () {
+    container.on('mouseleave', function() {
       container.removeClass('hovered');
       if (!container.hasClass('hovered') && !bullets.hasClass('hovered'))
         container.data(
           'hidethumbs',
-          setTimeout(function () {
+          setTimeout(function() {
             bullets.addClass('hidebullets');
             ca.addClass('hidearrows');
-          }, opt.hideThumbs)
+          }, opt.hideThumbs),
         );
     });
   }
@@ -985,12 +988,12 @@
   //	-	PREPARE THE SLIDES / SLOTS -  //
   ///////////////////////////////////////
   function prepareSlides(container, opt) {
-    container.find('.tp-caption').each(function () {
+    container.find('.tp-caption').each(function() {
       $(this).addClass($(this).data('transition'));
       $(this).addClass('start');
     });
 
-    container.find('>ul:first >li').each(function (j) {
+    container.find('>ul:first >li').each(function(j) {
       var li = $(this);
       if (li.data('link') != undefined) {
         var link = li.data('link');
@@ -1004,29 +1007,29 @@
         if (link == 'slide') {
           li.append(
             '<div class="tp-caption sft slidelink" style="z-index:' +
-              zindex +
-              ';" data-x="0" data-y="0" data-linktoslide="' +
-              linktoslide +
-              '" data-start="0"><a><div></div></a></div>'
+            zindex +
+            ';" data-x="0" data-y="0" data-linktoslide="' +
+            linktoslide +
+            '" data-start="0"><a><div></div></a></div>',
           );
         } else {
           linktoslide = 'no';
           li.append(
             '<div class="tp-caption sft slidelink" style="z-index:' +
-              zindex +
-              ';" data-x="0" data-y="0" data-linktoslide="' +
-              linktoslide +
-              '" data-start="0"><a target="' +
-              target +
-              '" href="' +
-              link +
-              '"><div></div></a></div>'
+            zindex +
+            ';" data-x="0" data-y="0" data-linktoslide="' +
+            linktoslide +
+            '" data-start="0"><a target="' +
+            target +
+            '" href="' +
+            link +
+            '"><div></div></a></div>',
           );
         }
       }
     });
 
-    container.find('>ul:first >li >img').each(function (j) {
+    container.find('>ul:first >li >img').each(function(j) {
       var img = $(this);
       img.addClass('defaultimg');
       setSize(img, opt);
@@ -1063,30 +1066,30 @@
     for (var i = 0; i < opt.slots; i++)
       sh.append(
         '<div class="slot" style="position:absolute;top:' +
-          (0 + fullyoff) +
-          'px;left:' +
-          (fulloff + i * opt.slotw) +
-          'px;overflow:hidden;width:' +
-          opt.slotw +
-          'px;height:' +
-          h +
-          'px"><div class="slotslide" style="position:absolute;top:0px;left:' +
-          off +
-          'px;width:' +
-          opt.slotw +
-          'px;height:' +
-          h +
-          'px;overflow:hidden;"><img style="background-color:' +
-          bgcolor +
-          ';position:absolute;top:0px;left:' +
-          (0 - i * opt.slotw) +
-          'px;width:' +
-          w +
-          'px;height:' +
-          h +
-          'px" src="' +
-          src +
-          '"></div></div>'
+        (0 + fullyoff) +
+        'px;left:' +
+        (fulloff + i * opt.slotw) +
+        'px;overflow:hidden;width:' +
+        opt.slotw +
+        'px;height:' +
+        h +
+        'px"><div class="slotslide" style="position:absolute;top:0px;left:' +
+        off +
+        'px;width:' +
+        opt.slotw +
+        'px;height:' +
+        h +
+        'px;overflow:hidden;"><img style="background-color:' +
+        bgcolor +
+        ';position:absolute;top:0px;left:' +
+        (0 - i * opt.slotw) +
+        'px;width:' +
+        w +
+        'px;height:' +
+        h +
+        'px" src="' +
+        src +
+        '"></div></div>',
       );
   }
 
@@ -1114,44 +1117,44 @@
     for (var i = 0; i < opt.slots + 2; i++)
       sh.append(
         '<div class="slot" style="position:absolute;' +
-          'top:' +
-          (fullyoff + i * opt.sloth) +
-          'px;' +
-          'left:' +
-          fulloff +
-          'px;' +
-          'overflow:hidden;' +
-          'width:' +
-          w +
-          'px;' +
-          'height:' +
-          opt.sloth +
-          'px"' +
-          '><div class="slotslide" style="position:absolute;' +
-          'top:' +
-          off +
-          'px;' +
-          'left:0px;width:' +
-          w +
-          'px;' +
-          'height:' +
-          opt.sloth +
-          'px;' +
-          'overflow:hidden;"><img style="position:absolute;' +
-          'background-color:' +
-          bgcolor +
-          ';' +
-          'top:' +
-          (0 - i * opt.sloth) +
-          'px;' +
-          'left:0px;width:' +
-          w +
-          'px;' +
-          'height:' +
-          h +
-          'px" src="' +
-          src +
-          '"></div></div>'
+        'top:' +
+        (fullyoff + i * opt.sloth) +
+        'px;' +
+        'left:' +
+        fulloff +
+        'px;' +
+        'overflow:hidden;' +
+        'width:' +
+        w +
+        'px;' +
+        'height:' +
+        opt.sloth +
+        'px"' +
+        '><div class="slotslide" style="position:absolute;' +
+        'top:' +
+        off +
+        'px;' +
+        'left:0px;width:' +
+        w +
+        'px;' +
+        'height:' +
+        opt.sloth +
+        'px;' +
+        'overflow:hidden;"><img style="position:absolute;' +
+        'background-color:' +
+        bgcolor +
+        ';' +
+        'top:' +
+        (0 - i * opt.sloth) +
+        'px;' +
+        'left:0px;width:' +
+        w +
+        'px;' +
+        'height:' +
+        h +
+        'px" src="' +
+        src +
+        '"></div></div>',
       );
   }
 
@@ -1194,58 +1197,58 @@
       for (var i = 0; i < opt.slots; i++) {
         sh.append(
           '<div class="slot" ' +
-            'style="position:absolute;' +
-            'top:' +
-            (fullyoff + y) +
-            'px;' +
-            'left:' +
-            (fulloff + x) +
-            'px;' +
-            'width:' +
-            basicsize +
-            'px;' +
-            'height:' +
-            basicsize +
-            'px;' +
-            'overflow:hidden;">' +
-            '<div class="slotslide" data-x="' +
-            x +
-            '" data-y="' +
-            y +
-            '" ' +
-            'style="position:absolute;' +
-            'top:' +
-            0 +
-            'px;' +
-            'left:' +
-            0 +
-            'px;' +
-            'width:' +
-            basicsize +
-            'px;' +
-            'height:' +
-            basicsize +
-            'px;' +
-            'overflow:hidden;">' +
-            '<img style="position:absolute;' +
-            'top:' +
-            (0 - y) +
-            'px;' +
-            'left:' +
-            (0 - x) +
-            'px;' +
-            'width:' +
-            w +
-            'px;' +
-            'height:' +
-            h +
-            'px' +
-            'background-color:' +
-            bgcolor +
-            ';"' +
-            'src="' +
-            src +
-            '"></div></div>'
+          'style="position:absolute;' +
+          'top:' +
+          (fullyoff + y) +
+          'px;' +
+          'left:' +
+          (fulloff + x) +
+          'px;' +
+          'width:' +
+          basicsize +
+          'px;' +
+          'height:' +
+          basicsize +
+          'px;' +
+          'overflow:hidden;">' +
+          '<div class="slotslide" data-x="' +
+          x +
+          '" data-y="' +
+          y +
+          '" ' +
+          'style="position:absolute;' +
+          'top:' +
+          0 +
+          'px;' +
+          'left:' +
+          0 +
+          'px;' +
+          'width:' +
+          basicsize +
+          'px;' +
+          'height:' +
+          basicsize +
+          'px;' +
+          'overflow:hidden;">' +
+          '<img style="position:absolute;' +
+          'top:' +
+          (0 - y) +
+          'px;' +
+          'left:' +
+          (0 - x) +
+          'px;' +
+          'width:' +
+          w +
+          'px;' +
+          'height:' +
+          h +
+          'px' +
+          'background-color:' +
+          bgcolor +
+          ';"' +
+          'src="' +
+          src +
+          '"></div></div>',
         );
         y = y + basicsize;
       }
@@ -1259,8 +1262,8 @@
   function removeSlots(container, opt, time) {
     if (time == undefined) time == 80;
 
-    setTimeout(function () {
-      container.find('.slotholder .slot').each(function () {
+    setTimeout(function() {
+      container.find('.slotholder .slot').each(function() {
         clearTimeout($(this).data('tout'));
         $(this).remove();
       });
@@ -1460,7 +1463,7 @@
     container
       .parent()
       .find('.bullet')
-      .each(function () {
+      .each(function() {
         var bul = $(this);
         bul.removeClass('selected');
 
@@ -1475,7 +1478,7 @@
     // 		SET THE NEXT CAPTION AND REMOVE THE LAST CAPTION		//
     //////////////////////////////////////////////////////////////////
 
-    container.find('>li').each(function () {
+    container.find('>li').each(function() {
       var li = $(this);
       if (li.index != opt.act && li.index != opt.next) li.css({ 'z-index': 16 });
     });
@@ -1540,12 +1543,12 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         if (opt.ie9) ss.transition({ top: 0 - opt.sloth, left: 0 - opt.slotw }, 0);
         else ss.transition({ top: 0 - opt.sloth, left: 0 - opt.slotw, rotate: opt.rotate }, 0);
-        setTimeout(function () {
-          ss.transition({ top: 0, left: 0, scale: 1, rotate: 0 }, masterspeed * 1.5, function () {
+        setTimeout(function() {
+          ss.transition({ top: 0, left: 0, scale: 1, rotate: 0 }, masterspeed * 1.5, function() {
             if (j == opt.slots * opt.slots - 1) {
               removeSlots(container, opt);
               nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -1576,7 +1579,7 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.css({ opacity: 0 });
         ss.find('img').css({ opacity: 0 });
@@ -1586,7 +1589,7 @@
               top: Math.random() * opt.slotw - opt.slotw + 'px',
               left: Math.random() * opt.slotw - opt.slotw + 'px',
             },
-            0
+            0,
           );
         else
           ss.find('img').transition(
@@ -1595,7 +1598,7 @@
               left: Math.random() * opt.slotw - opt.slotw + 'px',
               rotate: opt.rotate,
             },
-            0
+            0,
           );
 
         var rand = Math.random() * 1000 + (masterspeed + 200);
@@ -1603,9 +1606,9 @@
 
         ss.find('img').transition(
           { opacity: 1, top: 0 - ss.data('y') + 'px', left: 0 - ss.data('x') + 'px', rotate: 0 },
-          rand
+          rand,
         );
-        ss.transition({ opacity: 1 }, rand, function () {
+        ss.transition({ opacity: 1 }, rand, function() {
           if (j == opt.slots * opt.slots - 1) {
             removeSlots(container, opt);
             nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -1635,11 +1638,11 @@
       //actsh.find('.defaultimg').css({'opacity':0});
 
       // ALL OLD SLOTS SHOULD BE SLIDED TO THE RIGHT
-      actsh.find('.slotslide').each(function () {
+      actsh.find('.slotslide').each(function() {
         var ss = $(this);
 
         //ss.animate({'left':opt.slotw+'px'},{duration:masterspeed,queue:false,complete:function() {
-        ss.transit({ left: opt.slotw + 'px', rotate: 0 - opt.rotate }, masterspeed, function () {
+        ss.transit({ left: opt.slotw + 'px', rotate: 0 - opt.rotate }, masterspeed, function() {
           removeSlots(container, opt);
           nextsh.find('.defaultimg').css({ opacity: 1 });
           if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -1649,12 +1652,12 @@
       });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function () {
+      nextsh.find('.slotslide').each(function() {
         var ss = $(this);
         if (opt.ie9) ss.transit({ left: 0 - opt.slotw + 'px' }, 0);
         else ss.transit({ left: 0 - opt.slotw + 'px', rotate: opt.rotate }, 0);
 
-        ss.transit({ left: '0px', rotate: 0 }, masterspeed, function () {
+        ss.transit({ left: '0px', rotate: 0 }, masterspeed, function() {
           removeSlots(container, opt);
           nextsh.find('.defaultimg').css({ opacity: 1 });
           if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -1682,10 +1685,10 @@
       //actsh.find('.defaultimg').css({'opacity':0});
 
       // ALL OLD SLOTS SHOULD BE SLIDED TO THE RIGHT
-      actsh.find('.slotslide').each(function () {
+      actsh.find('.slotslide').each(function() {
         var ss = $(this);
 
-        ss.transit({ top: opt.sloth + 'px', rotate: opt.rotate }, masterspeed, function () {
+        ss.transit({ top: opt.sloth + 'px', rotate: opt.rotate }, masterspeed, function() {
           removeSlots(container, opt);
           nextsh.find('.defaultimg').css({ opacity: 1 });
           if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -1695,11 +1698,11 @@
       });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function () {
+      nextsh.find('.slotslide').each(function() {
         var ss = $(this);
         if (opt.ie9) ss.transit({ top: 0 - opt.sloth + 'px' }, 0);
         else ss.transit({ top: 0 - opt.sloth + 'px', rotate: opt.rotate }, 0);
-        ss.transit({ top: '0px', rotate: 0 }, masterspeed, function () {
+        ss.transit({ top: '0px', rotate: 0 }, masterspeed, function() {
           removeSlots(container, opt);
           nextsh.find('.defaultimg').css({ opacity: 1 });
           if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -1724,17 +1727,17 @@
       actsh.find('.defaultimg').css({ opacity: 0 });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      actsh.find('.slotslide').each(function (i) {
+      actsh.find('.slotslide').each(function(i) {
         var ss = $(this);
 
         ss.transit(
           { top: 0 + opt.height + 'px', opacity: 1, rotate: opt.rotate },
-          masterspeed + i * (70 - opt.slots)
+          masterspeed + i * (70 - opt.slots),
         );
       });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this);
         if (opt.ie9) ss.transition({ top: 0 - opt.height + 'px', opacity: 0 }, 0);
         else ss.transition({ top: 0 - opt.height + 'px', opacity: 0, rotate: opt.rotate }, 0);
@@ -1742,7 +1745,7 @@
         ss.transition(
           { top: '0px', opacity: 1, rotate: 0 },
           masterspeed + i * (70 - opt.slots),
-          function () {
+          function() {
             if (i == opt.slots - 1) {
               removeSlots(container, opt);
               nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -1750,7 +1753,7 @@
               opt.act = opt.next;
               moveSelectedThumb(container);
             }
-          }
+          },
         );
       });
     }
@@ -1770,17 +1773,17 @@
       actsh.find('.defaultimg').css({ opacity: 0 });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      actsh.find('.slotslide').each(function (i) {
+      actsh.find('.slotslide').each(function(i) {
         var ss = $(this);
 
         ss.transition(
           { top: 0 + opt.height + 'px', opacity: 1, rotate: opt.rotate },
-          masterspeed + (opt.slots - i) * (70 - opt.slots)
+          masterspeed + (opt.slots - i) * (70 - opt.slots),
         );
       });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this);
         if (opt.ie9) ss.transition({ top: 0 - opt.height + 'px', opacity: 0 }, 0);
         else ss.transition({ top: 0 - opt.height + 'px', opacity: 0, rotate: opt.rotate }, 0);
@@ -1788,7 +1791,7 @@
         ss.transition(
           { top: '0px', opacity: 1, rotate: 0 },
           masterspeed + (opt.slots - i) * (70 - opt.slots),
-          function () {
+          function() {
             if (i == 0) {
               removeSlots(container, opt);
               nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -1796,7 +1799,7 @@
               opt.act = opt.next;
               moveSelectedThumb(container);
             }
-          }
+          },
         );
       });
     }
@@ -1815,7 +1818,7 @@
       nextsh.find('.defaultimg').css({ opacity: 0 });
       actsh.find('.defaultimg').css({ opacity: 0 });
 
-      actsh.find('.slotslide').each(function (i) {
+      actsh.find('.slotslide').each(function(i) {
         var ss = $(this);
 
         if (i < opt.slots / 2) var tempo = (i + 2) * 60;
@@ -1825,14 +1828,14 @@
       });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this);
         if (opt.ie9) ss.transition({ top: 0 - opt.height + 'px', opacity: 0 }, 0);
         else ss.transition({ top: 0 - opt.height + 'px', opacity: 0, rotate: opt.rotate }, 0);
         if (i < opt.slots / 2) var tempo = (i + 2) * 60;
         else var tempo = (2 + opt.slots - i) * 60;
 
-        ss.transition({ top: '0px', opacity: 1, rotate: 0 }, masterspeed + tempo, function () {
+        ss.transition({ top: '0px', opacity: 1, rotate: 0 }, masterspeed + tempo, function() {
           if (i == Math.round(opt.slots / 2)) {
             removeSlots(container, opt);
             nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -1860,7 +1863,7 @@
       //actsh.find('.defaultimg').css({'opacity':0});
 
       // ALL OLD SLOTS SHOULD BE SLIDED TO THE RIGHT
-      actsh.find('.slotslide').each(function () {
+      actsh.find('.slotslide').each(function() {
         var ss = $(this).find('img');
 
         ss.transition(
@@ -1873,20 +1876,20 @@
             rotate: opt.rotate,
           },
           masterspeed,
-          function () {
+          function() {
             removeSlots(container, opt);
             nextsh.find('.defaultimg').css({ opacity: 1 });
             if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
             opt.act = opt.next;
             moveSelectedThumb(container);
-          }
+          },
         );
       });
 
       /						/; /////////////////////////////////////////////////////////////
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT //
       ///////////////////////////////////////////////////////////////
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this).find('img');
 
         if (opt.ie9) ss.transition({ left: 0 + 'px', top: 0 + 'px', opacity: 0 }, 0);
@@ -1901,13 +1904,13 @@
             rotate: 0,
           },
           masterspeed,
-          function () {
+          function() {
             removeSlots(container, opt);
             nextsh.find('.defaultimg').css({ opacity: 1 });
             if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
             opt.act = opt.next;
             moveSelectedThumb(container);
-          }
+          },
         );
       });
     }
@@ -1928,7 +1931,7 @@
       //actsh.find('.defaultimg').css({'opacity':0});
 
       // ALL OLD SLOTS SHOULD BE SLIDED TO THE RIGHT
-      actsh.find('.slotslide').each(function () {
+      actsh.find('.slotslide').each(function() {
         var ss = $(this).find('img');
 
         ss.transition(
@@ -1941,20 +1944,20 @@
             rotate: opt.rotate,
           },
           masterspeed,
-          function () {
+          function() {
             removeSlots(container, opt);
             nextsh.find('.defaultimg').css({ opacity: 1 });
             if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
 
             opt.act = opt.next;
             moveSelectedThumb(container);
-          }
+          },
         );
       });
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT //
       ///////////////////////////////////////////////////////////////
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this).find('img');
         if (opt.ie9) ss.transition({ left: 0 + 'px', top: 0 + 'px', opacity: 0 }, 0);
         else ss.transition({ left: 0 + 'px', top: 0 + 'px', opacity: 0, rotate: opt.rotate }, 0);
@@ -1968,14 +1971,14 @@
             rotate: 0,
           },
           masterspeed,
-          function () {
+          function() {
             removeSlots(container, opt);
             nextsh.find('.defaultimg').css({ opacity: 1 });
             if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
 
             opt.act = opt.next;
             moveSelectedThumb(container);
-          }
+          },
         );
       });
     }
@@ -1995,22 +1998,22 @@
 
       var ssamount = 0;
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this);
         ssamount++;
         ss.transition({ opacity: 0, x: 0, y: 0 }, 0);
         ss.data(
           'tout',
-          setTimeout(function () {
+          setTimeout(function() {
             ss.transition({ x: 0, y: 0, opacity: 1 }, masterspeed);
-          }, i * 4)
+          }, i * 4),
         );
       });
 
       //nextsh.find('.defaultimg').transition({'opacity':1},(masterspeed+(ssamount*4)));
 
       setTimeout(
-        function () {
+        function() {
           removeSlots(container, opt);
           nextsh.find('.defaultimg').css({ opacity: 1 });
           if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -2019,7 +2022,7 @@
           opt.act = opt.next;
           moveSelectedThumb(container);
         },
-        masterspeed + ssamount * 4
+        masterspeed + ssamount * 4,
       );
     }
 
@@ -2038,22 +2041,22 @@
 
       var ssamount = 0;
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this);
         ssamount++;
         ss.transition({ opacity: 0, x: 0, y: 0 }, 0);
         ss.data(
           'tout',
-          setTimeout(function () {
+          setTimeout(function() {
             ss.transition({ x: 0, y: 0, opacity: 1 }, masterspeed);
-          }, i * 4)
+          }, i * 4),
         );
       });
 
       //nextsh.find('.defaultimg').transition({'opacity':1},(masterspeed+(ssamount*4)));
 
       setTimeout(
-        function () {
+        function() {
           removeSlots(container, opt);
           nextsh.find('.defaultimg').css({ opacity: 1 });
           if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -2062,7 +2065,7 @@
           opt.act = opt.next;
           moveSelectedThumb(container);
         },
-        masterspeed + ssamount * 4
+        masterspeed + ssamount * 4,
       );
     }
 
@@ -2083,7 +2086,7 @@
       var ssamount = 0;
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (i) {
+      nextsh.find('.slotslide').each(function(i) {
         var ss = $(this);
         ssamount++;
 
@@ -2092,7 +2095,7 @@
           ss.css({ opacity: 0 });
         } else ss.transition({ opacity: 0, rotate: opt.rotate }, 0);
 
-        setTimeout(function () {
+        setTimeout(function() {
           if (opt.ie9 || opt.ie) {
             if (opt.ie) nextli.animate({ opacity: 1 }, { duration: masterspeed });
             else ss.transition({ opacity: 1 }, masterspeed);
@@ -2102,7 +2105,7 @@
         }, 10);
       });
 
-      setTimeout(function () {
+      setTimeout(function() {
         removeSlots(container, opt);
         nextsh.find('.defaultimg').css({ opacity: 1 });
         if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
@@ -2151,7 +2154,7 @@
         if (opt.ie9) ssn.transition({ top: 0 - opt.height + 'px' }, 0);
         else ssn.transition({ top: 0 - opt.height + 'px', rotate: opt.rotate }, 0);
 
-      ssn.transition({ left: '0px', top: '0px', opacity: 1, rotate: 0 }, masterspeed, function () {
+      ssn.transition({ left: '0px', top: '0px', opacity: 1, rotate: 0 }, masterspeed, function() {
         removeSlots(container, opt, 0);
         if (nextli.index() != actli.index()) actsh.find('.defaultimg').css({ opacity: 0 });
         nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -2194,26 +2197,22 @@
         var imgh = opt.height / 2;
         var to = 0;
       }
-      actli
-        .find('.tp-half-one')
-        .css({
-          width: opt.width + 'px',
-          height: to + imgh + 'px',
-          overflow: 'hidden',
-          position: 'absolute',
-          top: '0px',
-          left: '0px',
-        });
-      actli
-        .find('.tp-half-two')
-        .css({
-          width: opt.width + 'px',
-          height: to + imgh + 'px',
-          overflow: 'hidden',
-          position: 'absolute',
-          top: to + imgh + 'px',
-          left: '0px',
-        });
+      actli.find('.tp-half-one').css({
+        width: opt.width + 'px',
+        height: to + imgh + 'px',
+        overflow: 'hidden',
+        position: 'absolute',
+        top: '0px',
+        left: '0px',
+      });
+      actli.find('.tp-half-two').css({
+        width: opt.width + 'px',
+        height: to + imgh + 'px',
+        overflow: 'hidden',
+        position: 'absolute',
+        top: to + imgh + 'px',
+        left: '0px',
+      });
       actli
         .find('.tp-half-two .tp-offset')
         .css({ position: 'absolute', top: 0 - imgh - to + 'px', left: '0px' });
@@ -2237,14 +2236,14 @@
           .transition(
             { opacity: 1, scale: sc1, rotate: ro1, y: 0 - opt.height / 1.4 + 'px' },
             800,
-            'in'
+            'in',
           );
         actli
           .find('.tp-half-two')
           .transition(
             { opacity: 1, scale: sc2, rotate: ro2, y: 0 + opt.height / 1.4 + 'px' },
             800,
-            'in'
+            'in',
           );
 
         if (actli.html() != null)
@@ -2253,7 +2252,7 @@
             .transition({ rotate: 0, scale: 1, x: 0, y: 0 }, 600, 'snap');
       }
       nextsh.find('.defaultimg').css({ opacity: 1 });
-      setTimeout(function () {
+      setTimeout(function() {
         // CLEAN UP BEFORE WE START
         actli.css({ position: 'absolute', 'z-index': 18 });
         nextli.css({ position: 'absolute', 'z-index': 20 });
@@ -2290,10 +2289,10 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.transition({ opacity: 0, rotateY: 350, rotateX: 40, perspective: '1400px' }, 0);
-        setTimeout(function () {
+        setTimeout(function() {
           ss.transition(
             {
               opacity: 1,
@@ -2306,7 +2305,7 @@
               rotateX: 0,
             },
             masterspeed * 2,
-            function () {
+            function() {
               if (j == opt.slots - 1) {
                 removeSlots(container, opt);
                 nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -2315,7 +2314,7 @@
                 opt.act = opt.next;
                 moveSelectedThumb(container);
               }
-            }
+            },
           );
         }, j * 100);
       });
@@ -2342,13 +2341,13 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.transition(
           { rotateX: 10, rotateY: 310, perspective: '1400px', rotate: 0, opacity: 0 },
-          0
+          0,
         );
-        setTimeout(function () {
+        setTimeout(function() {
           ss.transition(
             {
               top: 0,
@@ -2361,7 +2360,7 @@
               opacity: 1,
             },
             masterspeed * 2,
-            function () {
+            function() {
               if (j == opt.slots - 1) {
                 removeSlots(container, opt);
                 nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -2370,7 +2369,7 @@
                 opt.act = opt.next;
                 moveSelectedThumb(container);
               }
-            }
+            },
           );
         }, j * 100);
       });
@@ -2399,7 +2398,7 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         //ss.css({'overflow':'visible'});
         ss.parent().css({ overflow: 'visible' });
@@ -2407,19 +2406,19 @@
         if (direction == 1)
           ss.transition(
             { opacity: 0, left: 0, top: opt.height / 2, rotate3d: '1, 0, 0, -90deg ' },
-            0
+            0,
           );
         else
           ss.transition(
             { opacity: 0, left: 0, top: 0 - opt.height / 2, rotate3d: '1, 0, 0, 90deg ' },
-            0
+            0,
           );
 
-        setTimeout(function () {
+        setTimeout(function() {
           ss.transition(
             { opacity: 1, top: 0, perspective: opt.height * 2, rotate3d: ' 1, 0, 0, 0deg ' },
             masterspeed * 2,
-            function () {
+            function() {
               if (j == opt.slots - 1) {
                 removeSlots(container, opt);
                 nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -2428,18 +2427,18 @@
                 opt.act = opt.next;
                 moveSelectedThumb(container);
               }
-            }
+            },
           );
         }, j * 150);
       });
 
-      actsh.find('.slotslide').each(function (j) {
+      actsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.parent().css({ overflow: 'visible' });
         ss.css({ background: '#333' });
         ss.transition({ top: 0, rotate3d: '1, 0, 0, 0deg' }, 0);
         actsh.find('.defaultimg').css({ opacity: 0 });
-        setTimeout(function () {
+        setTimeout(function() {
           if (direction == 1)
             ss.transition(
               {
@@ -2450,7 +2449,8 @@
                 rotate3d: '1, 0, 0, 90deg',
               },
               masterspeed * 2,
-              function () {}
+              function() {
+              },
             );
           else
             ss.transition(
@@ -2462,7 +2462,8 @@
                 rotate3d: '1, 0, 0, -90deg',
               },
               masterspeed * 2,
-              function () {}
+              function() {
+              },
             );
         }, j * 150);
       });
@@ -2488,26 +2489,26 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.parent().css({ overflow: 'visible' });
 
         if (direction == 1)
           ss.transition(
             { scale: 0.8, top: 0, left: 0 - opt.width, rotate3d: '2, 5, 0, 110deg' },
-            0
+            0,
           );
         else
           ss.transition(
             { scale: 0.8, top: 0, left: 0 + opt.width, rotate3d: '2, 5, 0, -110deg' },
-            0
+            0,
           );
-        setTimeout(function () {
+        setTimeout(function() {
           ss.transition(
             { scale: 0.8, left: 0, perspective: opt.width, rotate3d: '1, 5, 0, 0deg' },
             masterspeed * 2,
-            'ease'
-          ).transition({ scale: 1 }, 200, 'out', function () {
+            'ease',
+          ).transition({ scale: 1 }, 200, 'out', function() {
             if (j == opt.slots - 1) {
               removeSlots(container, opt);
               nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -2520,11 +2521,11 @@
         }, j * 100);
       });
 
-      actsh.find('.slotslide').each(function (j) {
+      actsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.transition({ scale: 0.5, left: 0, rotate3d: '1, 5, 0, 5deg' }, 300, 'in-out');
         actsh.find('.defaultimg').css({ opacity: 0 });
-        setTimeout(function () {
+        setTimeout(function() {
           if (direction == 1)
             ss.transition(
               {
@@ -2536,7 +2537,8 @@
               },
               masterspeed * 2,
               'out',
-              function () {}
+              function() {
+              },
             );
           else
             ss.transition(
@@ -2549,7 +2551,8 @@
               },
               masterspeed * 2,
               'out',
-              function () {}
+              function() {
+              },
             );
         }, j * 100);
       });
@@ -2575,16 +2578,16 @@
 
       // ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
 
-      nextsh.find('.slotslide').each(function (j) {
+      nextsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         if (direction == 1)
           ss.transition({ top: 0, left: 0 - opt.width, rotate3d: '0, 1, 0, 90deg' }, 0);
         else ss.transition({ top: 0, left: 0 + opt.width, rotate3d: '0, 1, 0, -90deg' }, 0);
-        setTimeout(function () {
+        setTimeout(function() {
           ss.transition(
             { left: 0, perspective: opt.width * 2, rotate3d: '0, 0, 0, 0deg' },
             masterspeed * 2,
-            function () {
+            function() {
               if (j == opt.slots - 1) {
                 removeSlots(container, opt);
                 nextsh.find('.defaultimg').css({ opacity: 1 });
@@ -2593,21 +2596,22 @@
                 opt.act = opt.next;
                 moveSelectedThumb(container);
               }
-            }
+            },
           );
         }, j * 100);
       });
 
-      actsh.find('.slotslide').each(function (j) {
+      actsh.find('.slotslide').each(function(j) {
         var ss = $(this);
         ss.transition({ left: 0, rotate3d: '0, 0, 0, 0deg' }, 0);
         actsh.find('.defaultimg').css({ opacity: 0 });
-        setTimeout(function () {
+        setTimeout(function() {
           if (direction == 1)
             ss.transition(
               { top: 0, left: opt.width / 2, perspective: opt.width, rotate3d: '0, 1, 0, -90deg' },
               masterspeed * 1.5,
-              function () {}
+              function() {
+              },
             );
           else
             ss.transition(
@@ -2618,7 +2622,8 @@
                 rotate3d: '0, 1, 0, +90deg',
               },
               masterspeed * 1.5,
-              function () {}
+              function() {
+              },
             );
         }, j * 100);
       });
@@ -2627,13 +2632,14 @@
     var data = {};
     data.slideIndex = opt.next + 1;
     container.trigger('revolution.slide.onchange', data);
-    setTimeout(function () {
+    setTimeout(function() {
       container.trigger('revolution.slide.onafterswap');
     }, masterspeed);
     container.trigger('revolution.slide.onvideostop');
   }
 
-  function onYouTubePlayerAPIReady() {}
+  function onYouTubePlayerAPIReady() {
+  }
 
   //////////////////////////////////////////
   // CHANG THE YOUTUBE PLAYER STATE HERE //
@@ -2651,7 +2657,7 @@
       if (opt.conthover == 0)
         bt.animate(
           { width: '100%' },
-          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
         );
       opt.videoplaying = false;
       opt.videostoppednow = 1;
@@ -2684,9 +2690,9 @@
 
     //$('#debug').html($('#debug').html()+" <br>Frooga Func"+Math.round(Math.random()*100));
 
-    froogaloop.addEvent('ready', function (data) {
+    froogaloop.addEvent('ready', function(data) {
       //$('#debug').html($('#debug').html()+" <br>Ready"+Math.round(Math.random()*100));
-      froogaloop.addEvent('play', function (data) {
+      froogaloop.addEvent('play', function(data) {
         //$('#debug').html($('#debug').html()+" <br>Play"+Math.round(Math.random()*100));
 
         var bt = $('body').find('.tp-bannertimer');
@@ -2695,25 +2701,25 @@
         opt.videoplaying = true;
       });
 
-      froogaloop.addEvent('finish', function (data) {
+      froogaloop.addEvent('finish', function(data) {
         var bt = $('body').find('.tp-bannertimer');
         var opt = bt.data('opt');
         if (opt.conthover == 0)
           bt.animate(
             { width: '100%' },
-            { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+            { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
           );
         opt.videoplaying = false;
         opt.videostartednow = 1;
       });
 
-      froogaloop.addEvent('pause', function (data) {
+      froogaloop.addEvent('pause', function(data) {
         var bt = $('body').find('.tp-bannertimer');
         var opt = bt.data('opt');
         if (opt.conthover == 0)
           bt.animate(
             { width: '100%' },
-            { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+            { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
           );
         opt.videoplaying = false;
         opt.videostoppednow = 1;
@@ -2724,36 +2730,36 @@
   function vimeoready_auto(player_id) {
     var froogaloop = $f(player_id);
 
-    froogaloop.addEvent('ready', function (data) {
+    froogaloop.addEvent('ready', function(data) {
       froogaloop.api('play');
     });
 
-    froogaloop.addEvent('play', function (data) {
+    froogaloop.addEvent('play', function(data) {
       var bt = $('body').find('.tp-bannertimer');
       var opt = bt.data('opt');
       bt.stop();
       opt.videoplaying = true;
     });
 
-    froogaloop.addEvent('finish', function (data) {
+    froogaloop.addEvent('finish', function(data) {
       var bt = $('body').find('.tp-bannertimer');
       var opt = bt.data('opt');
       if (opt.conthover == 0)
         bt.animate(
           { width: '100%' },
-          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
         );
       opt.videoplaying = false;
       opt.videostartednow = 1;
     });
 
-    froogaloop.addEvent('pause', function (data) {
+    froogaloop.addEvent('pause', function(data) {
       var bt = $('body').find('.tp-bannertimer');
       var opt = bt.data('opt');
       if (opt.conthover == 0)
         bt.animate(
           { width: '100%' },
-          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+          { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
         );
       opt.videoplaying = false;
       opt.videostoppednow = 1;
@@ -2768,7 +2774,7 @@
     //		$("body").append('<div id="debug" style="background:#000;z-index:1000;position:fixed;top:5px;left:5px;width:100px;height:500px;color:#fff;font-size:10px;font-family:Arial;"</div>');
 
     var offsetx = 0;
-    nextli.find('.tp-caption').each(function (i) {
+    nextli.find('.tp-caption').each(function(i) {
       offsetx = opt.width / 2 - opt.startwidth / 2;
 
       if (opt.bh > 1) {
@@ -2806,7 +2812,7 @@
         if (nextcaption.data('linktoslide') != undefined) {
           nextcaption.css({ cursor: 'pointer' });
           if (nextcaption.data('linktoslide') != 'no') {
-            nextcaption.click(function () {
+            nextcaption.click(function() {
               var nextcaption = $(this);
               var dir = nextcaption.data('linktoslide');
               if (dir != 'next' && dir != 'prev') {
@@ -2831,7 +2837,7 @@
         var frameID = 'iframe' + Math.round(Math.random() * 1000 + 1);
 
         if (nextcaption.find('iframe').length > 0) {
-          nextcaption.find('iframe').each(function () {
+          nextcaption.find('iframe').each(function() {
             var ifr = $(this);
 
             if (ifr.attr('src').toLowerCase().indexOf('youtube') >= 0) {
@@ -2856,7 +2862,8 @@
                   ifr.addClass('HasListener');
 
                   nextcaption.data('player', player);
-                } catch (e) {}
+                } catch (e) {
+                }
               } else {
                 if (nextcaption.data('autoplay') == true) {
                   var player = nextcaption.data('player');
@@ -2886,7 +2893,8 @@
 
                   try {
                     isrc = isrc.replace('api=0', 'api=1');
-                  } catch (e) {}
+                  } catch (e) {
+                  }
 
                   isrc = isrc + '&api=1';
 
@@ -3162,7 +3170,7 @@
 
         nextcaption.data(
           'timer',
-          setTimeout(function () {
+          setTimeout(function() {
             nextcaption.css({ visibility: 'visible' });
             if (nextcaption.hasClass('fade')) {
               nextcaption.data('repo', nextcaption.css('opacity'));
@@ -3170,10 +3178,10 @@
                 { opacity: 1 },
                 {
                   duration: nextcaption.data('speed'),
-                  complete: function () {
+                  complete: function() {
                     if (opt.ie) $(this).addClass('noFilterClass');
                   },
-                }
+                },
               );
               //if (opt.ie) nextcaption.addClass('noFilterClass');
             }
@@ -3218,21 +3226,21 @@
                 {
                   duration: nextcaption.data('speed'),
                   easing: easetype,
-                  complete: function () {
+                  complete: function() {
                     if (opt.ie) $(this).addClass('noFilterClass');
                   },
-                }
+                },
               );
               //if (opt.ie) nextcaption.addClass('noFilterClass');
             }
-          }, nextcaption.data('start'))
+          }, nextcaption.data('start')),
         );
 
         // IF THERE IS ANY EXIT ANIM DEFINED
         if (nextcaption.data('end') != undefined)
           nextcaption.data(
             'timer-end',
-            setTimeout(function () {
+            setTimeout(function() {
               if (
                 (opt.ie || opt.ie9) &&
                 (nextcaption.hasClass('randomrotate') || nextcaption.hasClass('randomrotateout'))
@@ -3244,7 +3252,7 @@
               }
 
               endMoveCaption(nextcaption, opt);
-            }, nextcaption.data('end'))
+            }, nextcaption.data('end')),
           );
       }
     });
@@ -3259,7 +3267,7 @@
   //	REMOVE THE CAPTIONS //
   /////////////////////////
   function removeTheCaptions(actli, opt) {
-    actli.find('.tp-caption').each(function (i) {
+    actli.find('.tp-caption').each(function(i) {
       var nextcaption = actli.find('.tp-caption:eq(' + i + ')');
       nextcaption.stop(true, true);
       clearTimeout(nextcaption.data('timer'));
@@ -3280,12 +3288,14 @@
           var id = ifr.attr('id');
           var froogaloop = $f(id);
           froogaloop.api('pause');
-        } catch (e) {}
+        } catch (e) {
+        }
         //YOU TUBE PAUSE
         try {
           var player = nextcaption.data('player');
           player.stopVideo();
-        } catch (e) {}
+        } catch (e) {
+        }
       }
       try {
         /*if (rot!=undefined || sca!=undefined)
@@ -3298,7 +3308,8 @@
 											nextcaption.animate({'opacity':0,'left':ll+'px','top':tt+"px"},{duration:(nextcaption.data('speed')+10), easing:easetype, complete:function() { nextcaption.removeClass('noFilterClass');nextcaption.css({'visibility':'hidden'})}});
 										}*/
         endMoveCaption(nextcaption, opt);
-      } catch (e) {}
+      } catch (e) {
+      }
     });
   }
 
@@ -3361,10 +3372,10 @@
         {
           duration: nextcaption.data('endspeed'),
           easing: easetype,
-          complete: function () {
+          complete: function() {
             $(this).css({ visibility: 'hidden' });
           },
-        }
+        },
       );
       if (opt.ie) nextcaption.removeClass('noFilterClass');
     } else if (nextcaption.hasClass('randomrotateout')) {
@@ -3375,7 +3386,7 @@
         top: Math.random() * opt.height + 'px',
         rotate: Math.random() * 40,
         duration: endspeed,
-        complete: function () {
+        complete: function() {
           $(this).css({ visibility: 'hidden' });
         },
       });
@@ -3386,10 +3397,10 @@
         { opacity: 0 },
         {
           duration: 200,
-          complete: function () {
+          complete: function() {
             $(this).css({ visibility: 'hidden' });
           },
-        }
+        },
       );
     } else if (
       nextcaption.hasClass('lfr') ||
@@ -3414,10 +3425,10 @@
         {
           duration: nextcaption.data('endspeed'),
           easing: easetype,
-          complete: function () {
+          complete: function() {
             $(this).css({ visibility: 'hidden' });
           },
-        }
+        },
       );
       if (opt.ie) nextcaption.removeClass('noFilterClass');
     } else if (nextcaption.hasClass('fade')) {
@@ -3425,10 +3436,10 @@
         { opacity: 0 },
         {
           duration: endspeed,
-          complete: function () {
+          complete: function() {
             $(this).css({ visibility: 'hidden' });
           },
-        }
+        },
       );
       if (opt.ie) nextcaption.removeClass('noFilterClass');
     } else if (nextcaption.hasClass('randomrotate')) {
@@ -3448,23 +3459,28 @@
   //	REMOVE THE LISTENERS //
   ///////////////////////////
   function removeAllListeners(container, opt) {
-    container.children().each(function () {
+    container.children().each(function() {
       try {
         $(this).die('click');
-      } catch (e) {}
+      } catch (e) {
+      }
       try {
         $(this).die('mouseenter');
-      } catch (e) {}
+      } catch (e) {
+      }
       try {
         $(this).die('mouseleave');
-      } catch (e) {}
+      } catch (e) {
+      }
       try {
         $(this).unbind('hover');
-      } catch (e) {}
+      } catch (e) {
+      }
     });
     try {
       $container.die('click', 'mouseenter', 'mouseleave');
-    } catch (e) {}
+    } catch (e) {
+    }
     clearInterval(opt.cdint);
     container = null;
   }
@@ -3492,13 +3508,13 @@
         bt.css({ width: '0%' });
         bt.animate(
           { width: '100%' },
-          { duration: opt.delay - 100, queue: false, easing: 'linear' }
+          { duration: opt.delay - 100, queue: false, easing: 'linear' },
         );
       }
 
       bt.data('opt', opt);
 
-      opt.cdint = setInterval(function () {
+      opt.cdint = setInterval(function() {
         if ($('body').find(container).length == 0) removeAllListeners(container, opt);
         if (container.data('conthover-changed') == 1) {
           opt.conthover = container.data('conthover');
@@ -3554,32 +3570,32 @@
             bt.css({ width: '0%' });
             bt.animate(
               { width: '100%' },
-              { duration: opt.delay - 100, queue: false, easing: 'linear' }
+              { duration: opt.delay - 100, queue: false, easing: 'linear' },
             );
           }
         }
       }, 100);
 
       container.hover(
-        function () {
+        function() {
           if (opt.onHoverStop == 'on') {
             opt.conthover = 1;
             bt.stop();
             container.trigger('revolution.slide.onpause');
           }
         },
-        function () {
+        function() {
           if (container.data('conthover') != 1) {
             container.trigger('revolution.slide.onresume');
             opt.conthover = 0;
             if (opt.onHoverStop == 'on' && opt.videoplaying != true) {
               bt.animate(
                 { width: '100%' },
-                { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' }
+                { duration: opt.delay - opt.cd - 100, queue: false, easing: 'linear' },
               );
             }
           }
-        }
+        },
       );
     }
   }

@@ -76,23 +76,23 @@ thead,
 tr,
 th,
 td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 
 /***********************
 	-	BASICS 	-
 ***********************/
 html {
-  overflow-x: hidden;
-  padding: 0 !important;
-  background-image: url(../images/tiles/bgtile.jpg);
-  margin: 0px !important;
+    overflow-x: hidden;
+    padding: 0 !important;
+    background-image: url(../images/tiles/bgtile.jpg);
+    margin: 0px !important;
 }
 
 /*********************************************************************************************
@@ -102,35 +102,35 @@ html {
 /*	-	THE BANNER CONTAINER (Padding, Shadow, Border etc. )	-	*/
 
 .bannercontainer {
-  padding: 5px;
-  background-color: #fff;
-  width: 890px;
-  position: relative;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+    padding: 5px;
+    background-color: #fff;
+    width: 890px;
+    position: relative;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .banner {
-  width: 890px;
-  height: 490px;
-  position: relative;
-  overflow: hidden;
+    width: 890px;
+    height: 490px;
+    position: relative;
+    overflow: hidden;
 }
 
 .bannercontainer2 {
-  padding: 0px;
-  background-color: #3e5da2;
-  width: 400px;
-  position: relative;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+    padding: 0px;
+    background-color: #3e5da2;
+    width: 400px;
+    position: relative;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .banner2 {
-  width: 400px;
-  height: 300px;
-  position: relative;
-  overflow: hidden;
+    width: 400px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
 }
