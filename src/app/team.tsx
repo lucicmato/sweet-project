@@ -32,10 +32,10 @@ const Team = () => {
             <p>Strastvena slastičarka koja s ljubavlju pretvara ideje u nezaboravne deserte.</p> {/*you can edit*/}
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }} className="socialteam">
-            <a href="#"><img className="rotate" alt=""
-                             src="/img/section-team/instagramicon.png" /></a>
-            <a href="#"><img className="rotate" alt=""
-                             src="/img/section-team/facebookicon.png" /></a>
+            <a href="https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/"><img className="rotate" alt=""
+                                                                                           src="/img/section-team/instagramicon.png" /></a>
+            <a href="https://www.instagram.com/_slatko_i_.tocka_/"><img className="rotate" alt=""
+                                                                        src="/img/section-team/facebookicon.png" /></a>
 
           </div>
         </div>

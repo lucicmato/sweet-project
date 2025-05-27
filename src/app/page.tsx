@@ -4,6 +4,9 @@ import Testimonials from '@/app/testimonials';
 import Portfolio from '@/app/portfolio';
 import Prices from '@/app/prices';
 import Team from '@/app/team';
+import Skills from '@/app/skills';
+import Social from '@/app/social';
+import Contacts from '@/app/contacts';
 
 const Home = () => {
   return (
@@ -16,6 +19,9 @@ const Home = () => {
         <Portfolio />
         <Prices />
         <Team />
+        <Skills />
+        <Social />
+        <Contacts />
       </main>
     </>
   );
