@@ -1,8 +1,6 @@
 const Navigation = () => {
   return (<>
-      {/*!--start navigationmenu-->*/}
       <header id="navigationmenu">
-
         {/*<!--start container-->*/}
         <div className="container clearfix">
 

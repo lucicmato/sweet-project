@@ -7,11 +7,8 @@ import '../../public/css/isotope.css';
 import '../../public/css/style.css';
 import '../../public/css/responsive.css';
 import '../../public/css/prettyPhoto.css';
-//import '../../public/slide/css/responsive.css';
-// import '../../public/slide/css/fullwidth.css';
-// import '../../public/slide/css/autowidth.css';
-// import '../../public/slide/css/simple.css';
-import './globals.css';
+
+import './styles/globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
