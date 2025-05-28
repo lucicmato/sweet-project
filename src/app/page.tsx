@@ -1,4 +1,4 @@
-import Header from '@/app/header';
+import Navigation from '@/app/navigation';
 import Services from '@/app/services';
 import Testimonials from '@/app/testimonials';
 import Portfolio from '@/app/portfolio';
@@ -12,8 +12,7 @@ const Home = () => {
   return (
     <>
       <main>
-        <Header />
-        {/*<Banner />*/}
+        <Navigation />
         <Services />
         <Testimonials />
         <Portfolio />

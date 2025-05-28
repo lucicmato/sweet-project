@@ -1,4 +1,4 @@
-const Header = () => {
+const Navigation = () => {
   return (<>
       {/*!--start navigationmenu-->*/}
       <header id="navigationmenu">
@@ -10,10 +10,10 @@ const Header = () => {
           <div className="grid_5">
             <nav className="leftnavigation">
               <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#sectionportfolio">Works</a></li>
-                <li><a href="#sectionprices">Prices</a></li>
+                <li><a href="#sectionteam">O meni</a></li>
+                <li><a href="#services">Usluge</a></li>
+                <li><a href="#sectionskills">Što nudimo</a></li>
+                <li><a href="#sectionportfolio">Galerija</a></li>
               </ul>
             </nav>
           </div>
@@ -29,10 +29,9 @@ const Header = () => {
           <div className="grid_5">
             <nav className="rightnavigation">
               <ul>
-                <li><a href="#sectionteam">Our Team</a></li>
-                <li><a href="#sectionskills">Our Skills</a></li>
-                <li><a href="#oursocial">Social</a></li>
-                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="#sectionprices">Cijene</a></li>
+                <li><a href="#testimonials">Drugi govore o nama</a></li>
+                <li><a href="#oursocial">Pratite nas</a></li>
               </ul>
             </nav>
           </div>
@@ -48,4 +47,4 @@ const Header = () => {
 
 };
 
-export default Header;
+export default Navigation;

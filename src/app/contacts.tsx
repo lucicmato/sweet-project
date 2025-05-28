@@ -5,17 +5,15 @@ const Contacts = () => {
       <div className="topwaves"></div>
       {/*waves*/}
 
-      {/*anchor back to top*/}
-      <a className="backtotop" href="#navigationmenu">
-        <img alt="" src="/img/anchors/backtotop.png" />
-      </a>
-      {/*end anchor back to top*/}
+      {/*/!*anchor back to top*!/*/}
+      {/*<a className="backtotop" href="#navigationmenu">*/}
+      {/*  <img alt="" src="/img/anchors/backtotop.png" />*/}
+      {/*</a>*/}
+      {/*/!*end anchor back to top*!/*/}
 
-      {/*/!*all markers*!/*/}
-      <div id="markers">
 
-        {/*  /!*big marker*!/*/}
-        {/*<div id="bigmarker">*/}
+      {/*  /!*big marker*!/*/}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem' }}>
         <h1>Slatko i točka</h1>
         <ul>
           <li>
@@ -31,27 +29,16 @@ const Contacts = () => {
             </p>
           </li>
         </ul>
-        {/*</div>*/}
-        {/*  /!*end big marker*!/*/}
-
-        {/*  /!*little marker*!/*/}
-        {/*  <div id="littlemarker" className="rotate">*/}
-        {/*    <img alt="" src="img/section-contact/littlemarker.png" />*/}
-        {/*  </div>*/}
-        {/*  /!*end little marker*!/*/}
-
-        {/*  /!*little marker close: need for js effect*!/*/}
-        {/*  <div id="littlemarkerclose" className="rotate">*/}
-        {/*    <img alt="" src="img/section-contact/littlemarkerclose.png" />*/}
-        {/*  </div>*/}
-        {/*  /!*end little marker*!/*/}
-
       </div>
-      {/*/!*end all markers*!/*/}
+      {/*end big marker*/}
 
-      {/*google maps*/}
-      {/*<div id="map-canvas"></div>*/}
-      {/*google maps*/}
+      {/*TODO: Back to top*/}
+      {/*little marker*/}
+      <div id="littlemarker" className="rotate">
+        <img alt="" src="/img/section-contact/littlemarker.png" />
+      </div>
+      {/*end little marker*/}
+
 
     </footer>
   );
