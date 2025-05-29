@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'SlatkoITocka',
   description:
-    'Portfolio stranica napravljena u svrhu obrta za proizvodnju slastica - Slatko i Točka.',
+    'Stranica napravljena u svrhu promoviranja obrta za proizvodnju slastica - Slatko i Točka.',
 };
 
 export default function RootLayout({

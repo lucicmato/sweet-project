@@ -1,5 +1,6 @@
 const Navigation = () => {
-  return (<>
+  return (
+    <>
       <header id="navigationmenu">
         {/*<!--start container-->*/}
         <div className="container clearfix">
@@ -28,7 +29,7 @@ const Navigation = () => {
             <nav className="rightnavigation">
               <ul>
                 <li><a href="#sectionprices">Cijene</a></li>
-                <li><a href="#testimonials">Drugi govore o nama</a></li>
+                <li><a href="#testimonials">Osvrti</a></li>
                 <li><a href="#oursocial">Pratite nas</a></li>
               </ul>
             </nav>
@@ -39,7 +40,6 @@ const Navigation = () => {
         {/*  <!--end container-->*/}
 
       </header>
-      {/*<!--end navigationmenu-->*/}
     </>
   );
 
