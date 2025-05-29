@@ -1,15 +1,9 @@
+import Anchors from '@/app/components/anchors';
+
 const Testimonials = () => {
   return (
     <section id="testimonials">
-
-      {/*start anchors*/}
-      <div className="anchors">
-        <div className="contanchors">
-          <a href="#services"><img className="anchortop" alt="" src="/img/anchors/toptestimonials.png" /></a>
-          <a href="#sectionportfolio"><img className="anchorbottom" alt="" src="/img/anchors/bottomtestimonials.png" /></a>
-        </div>
-      </div>
-      {/*end anchors*/}
+      <Anchors lowerSectionId={'sectionportfolio'} upperSectionId={'services'} />
 
       {/*start dark filter*/}
       <div id="darkfilter">
