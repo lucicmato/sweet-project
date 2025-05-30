@@ -1,4 +1,4 @@
-import { ServiceItem } from '@/app/types/types';
+import { PriceCard, ServiceItem } from '@/app/types/types';
 
 export const servicesData: ServiceItem[] = [
   {
@@ -36,6 +36,58 @@ export const servicesData: ServiceItem[] = [
     description:
       'Vaše slastice sigurno i pažljivo dostavljamo na željenu adresu. Brinemo da svaki desert stigne svjež i netaknut, spreman za posluživanje.',
     imageSrc: '/img/section-services/service6.png',
+  },
+];
+
+export const priceCardsData: PriceCard[] = [
+  {
+    imageSrc: '/img/section-prices/price1.png',
+    priceLabel: '€ XX /kg',
+    category: 'Kolači',
+    description:
+      'Cijene sitnih kolača ovise o vrsti, sastojcima i kompleksnosti izrade. U nastavku donosimo okvirne cijene po kilogramu:',
+    items: [
+      'Klasični domaći kolači (medena pita, mađarica, bajadera, kokos kocke, rum kuglice...): XX € / kg',
+      'Premium kolači s luksuznim sastojcima (pistacija, cheesecake varijante, dekorirani zalogaji): XX € / kg',
+      'Specijalni kolači (bezglutenski, keto, veganski): XX € / kg',
+    ],
+    buttonColor: 'red',
+  },
+  {
+    imageSrc: '/img/section-prices/price2.png',
+    priceLabel: '€ XX',
+    category: 'Torta',
+    description:
+      'Cijena torte ovisi o veličini, okusu, dekoraciji i posebnim zahtjevima. Svaka torta izrađuje se po narudžbi, uz dogovor s vama.',
+    items: [
+      'Klasične torte (čokoladne, voćne, kombinacije kreme i biskvita): XX € / kg',
+      'Dekorirane torte s temom (rođendani, dječje torte, jednostavni fondant detalji): XX € / kg',
+      'Premium i svečane torte (vjenčanja, slojevite torte, zahtjevnija dekoracija, fondant obloge): XX € / kg',
+    ],
+    buttonColor: 'blue',
+  },
+  {
+    imageSrc: '/img/section-prices/price3.png',
+    priceLabel: '€ XX',
+    category: 'Deserti',
+    description:
+      'Naši deserti su prava mala remek-djela slatkog užitka! Svaki zalogaj donosi bogatstvo okusa, pažljivo odabranih sastojaka i domaću pripremu.',
+    items: [
+      'Kolači u čašici',
+      'Tiramisu',
+      'Panna cotta',
+      'Princes krafne',
+    ],
+    buttonColor: 'yellow',
+  },
+  {
+    imageSrc: '/img/section-prices/price4.png',
+    priceLabel: '€ XX',
+    category: 'Posebne narudžbe',
+    description:
+      'Za posebne narudžbe kreiramo slastice po vašoj želji – birate okuse, boje, oblike i dekoracije.',
+    items: [],
+    buttonColor: 'green',
   },
 ];
 
