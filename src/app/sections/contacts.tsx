@@ -32,10 +32,9 @@ const Contacts = () => {
       </div>
       {/*end big marker*/}
 
-      {/*TODO: Back to top*/}
       {/*little marker*/}
       <div id="littlemarker" className="rotate">
-        <img alt="" src="/img/section-contact/littlemarker.png" />
+        <a href="#"> <img alt="" src="/img/section-contact/littlemarker.png" /></a>
       </div>
       {/*end little marker*/}
 
