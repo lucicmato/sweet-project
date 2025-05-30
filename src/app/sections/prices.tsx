@@ -21,8 +21,8 @@ const Prices = () => {
 
         {/*price*/}
 
-        {priceCardsData.map((priceCardData: PriceCard) => (
-          <div className="grid_3 expand">
+        {priceCardsData.map((priceCardData: PriceCard, index) => (
+          <div className="grid_3 expand" key={index}>
             <div className="logoprice">
               <img className="rotate" alt="" src={priceCardData.imageSrc} />
             </div>
@@ -32,8 +32,8 @@ const Prices = () => {
             <div className="price">
               <p>{priceCardData.description}</p>
 
-              <ul>{priceCardData.items?.length > 0 && priceCardData.items?.map((item: string) => (
-                <li><p>{item}</p></li>))}</ul>
+              <ul>{priceCardData.items?.length > 0 && priceCardData.items?.map((item: string, index) => (
+                <li key={index}><p>{item}</p></li>))}</ul>
 
               <p className="btn green"><a>{priceCardData.category}</a></p>
             </div>

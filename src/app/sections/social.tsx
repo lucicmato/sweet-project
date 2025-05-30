@@ -6,6 +6,7 @@ import { Social } from '@/app/types/types';
 const Social = () => {
   return (
     <section id="oursocial">
+
       <Anchors upperSectionId={'sectionskills'} lowerSectionId={'contacts'} />
 
       {/* start container */}
@@ -22,8 +23,8 @@ const Social = () => {
         {/* end title section */}
 
         <div>
-          {socialMedia.map((media: Social) => (
-            <div className="grid_2">
+          {socialMedia.map((media: Social, index) => (
+            <div className="grid_2" key={index}>
               <a href={media.url}>
                 <img className="rotate" alt="" src={media.icon} />
               </a>

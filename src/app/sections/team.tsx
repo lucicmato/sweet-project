@@ -18,8 +18,8 @@ const Team = () => {
         </div>
         {/*end title section*/}
 
-        {teamMembers.map((member: TeamMember) => (
-          <div className="grid_3">
+        {teamMembers.map((member: TeamMember, index) => (
+          <div className="grid_3" key={index}>
             <div className="avatar">
               <img className="opacity" alt=""
                    src={member.imageSrc} />
