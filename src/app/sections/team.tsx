@@ -1,15 +1,12 @@
+import Anchors from '@/app/components/anchors';
+import { teamMembers } from '@/app/data/data';
+import { TeamMember } from '@/app/types/types';
+
 const Team = () => {
   return (
     <section id="sectionteam">
 
-      {/*start anchors*/}
-      <div className="anchors">
-        <div className="contanchors">
-          <a href="#sectionprices"><img className="anchortop" alt="" src="/img/anchors/topteam.png" /></a>
-          <a href="#sectionskills"><img className="anchorbottom" alt="" src="/img/anchors/bottomteam.png" /></a>
-        </div>
-      </div>
-      {/*end anchors*/}
+      <Anchors upperSectionId={'sectionprices'} lowerSectionId={'sectionskills'} />
 
       {/*start container*/}
       <div className="container clearfix">
@@ -20,26 +17,26 @@ const Team = () => {
         </div>
         {/*end title section*/}
 
-        {/*start team*/}
-        <div className="grid_3">
-          <div className="avatar">
-            <img className="opacity" alt=""
-                 src="/img/section-team/team1.png" />
-          </div>
-          <div className="team">
-            <div className="bordertopteam"></div>
-            <h2>Ime i prezime</h2>
-            <p>Strastvena slastičarka koja s ljubavlju pretvara ideje u nezaboravne deserte.</p> {/*you can edit*/}
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center' }} className="socialteam">
-            <a href="https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/"><img className="rotate" alt=""
-                                                                                           src="/img/section-team/instagramicon.png" /></a>
-            <a href="https://www.instagram.com/_slatko_i_.tocka_/"><img className="rotate" alt=""
-                                                                        src="/img/section-team/facebookicon.png" /></a>
+        {teamMembers.map((member: TeamMember) => (
+          <div className="grid_3">
+            <div className="avatar">
+              <img className="opacity" alt=""
+                   src={member.imageSrc} />
+            </div>
+            <div className="team">
+              <div className="bordertopteam"></div>
+              <h2>{member.name}</h2>
+              <p>{member.description}</p>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }} className="socialteam">
+              {member.socialLinks.length > 0 && member.socialLinks.map((social) => (
+                <a href={social.url}><img className="rotate" alt=""
+                                          src={social.icon} /></a>))
+              }
 
+            </div>
           </div>
-        </div>
-        {/*end team*/}
+        ))}
 
         <div className="grid_12 titlesection">
           <h1 style={{ color: 'red' }}>Work in progress... </h1>

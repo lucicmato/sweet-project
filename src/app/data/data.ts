@@ -1,4 +1,4 @@
-import { PriceCard, ServiceItem } from '@/app/types/types';
+import { PriceCard, ServiceItem, TeamMember } from '@/app/types/types';
 
 export const servicesData: ServiceItem[] = [
   {
@@ -90,6 +90,27 @@ export const priceCardsData: PriceCard[] = [
     buttonColor: 'green',
   },
 ];
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: 'Ime i prezime',
+    description: 'Strastvena slastičarka koja s ljubavlju pretvara ideje u nezaboravne deserte.',
+    imageSrc: '/img/section-team/team1.png',
+    socialLinks: [
+      {
+        platform: 'facebook',
+        url: 'https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/',
+        icon: '/img/section-team/instagramicon.png',
+      },
+      {
+        platform: 'instagram',
+        url: 'https://www.instagram.com/_slatko_i_.tocka_/',
+        icon: '/img/section-team/facebookicon.png',
+      },
+    ],
+  },
+];
+
 
 
 

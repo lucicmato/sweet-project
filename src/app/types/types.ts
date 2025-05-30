@@ -13,3 +13,14 @@ export type PriceCard = {
   items?: string[];
   buttonColor: 'red' | 'blue' | 'yellow' | 'green';
 };
+
+export type TeamMember = {
+  name: string;
+  description: string;
+  imageSrc: string;
+  socialLinks: {
+    platform: string;
+    url: string;
+    icon: string;
+  }[];
+};
