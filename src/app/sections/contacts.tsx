@@ -5,13 +5,6 @@ const Contacts = () => {
       <div className="topwaves"></div>
       {/*waves*/}
 
-      {/*/!*anchor back to top*!/*/}
-      {/*<a className="backtotop" href="#navigationmenu">*/}
-      {/*  <img alt="" src="/img/anchors/backtotop.png" />*/}
-      {/*</a>*/}
-      {/*/!*end anchor back to top*!/*/}
-
-
       {/*  /!*big marker*!/*/}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem' }}>
         <h1>Slatko i točka</h1>
