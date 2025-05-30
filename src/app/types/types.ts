@@ -18,9 +18,11 @@ export type TeamMember = {
   name: string;
   description: string;
   imageSrc: string;
-  socialLinks: {
-    platform: string;
-    url: string;
-    icon: string;
-  }[];
+  socialLinks: Social[];
 };
+
+export type Social = {
+  platform: string;
+  url: string;
+  icon: string
+}

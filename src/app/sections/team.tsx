@@ -1,6 +1,7 @@
 import Anchors from '@/app/components/anchors';
+
 import { teamMembers } from '@/app/data/data';
-import { TeamMember } from '@/app/types/types';
+import { Social, TeamMember } from '@/app/types/types';
 
 const Team = () => {
   return (
@@ -29,7 +30,7 @@ const Team = () => {
               <p>{member.description}</p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }} className="socialteam">
-              {member.socialLinks.length > 0 && member.socialLinks.map((social) => (
+              {member.socialLinks.length > 0 && member.socialLinks.map((social: Social) => (
                 <a href={social.url}><img className="rotate" alt=""
                                           src={social.icon} /></a>))
               }

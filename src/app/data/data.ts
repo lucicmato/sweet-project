@@ -1,4 +1,4 @@
-import { PriceCard, ServiceItem, TeamMember } from '@/app/types/types';
+import { PriceCard, ServiceItem, Social, TeamMember } from '@/app/types/types';
 
 export const servicesData: ServiceItem[] = [
   {
@@ -100,16 +100,28 @@ export const teamMembers: TeamMember[] = [
       {
         platform: 'facebook',
         url: 'https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/',
-        icon: '/img/section-team/instagramicon.png',
+        icon: '/img/section-team/facebookicon.png',
       },
       {
         platform: 'instagram',
         url: 'https://www.instagram.com/_slatko_i_.tocka_/',
-        icon: '/img/section-team/facebookicon.png',
+        icon: '/img/section-team/instagramicon.png',
       },
     ],
   },
 ];
+
+export const socialMedia: Social[] = [
+  {
+    platform: 'facebook',
+    url: 'https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/',
+    icon: '/img/section-oursocial/facebook.png',
+  },
+  {
+    platform: 'instagram',
+    url: 'https://www.instagram.com/_slatko_i_.tocka_/',
+    icon: '/img/section-oursocial/instagram.png',
+  }];
 
 
 

@@ -1,19 +1,12 @@
+import Anchors from '@/app/components/anchors';
+
+import { socialMedia } from '@/app/data/data';
+import { Social } from '@/app/types/types';
+
 const Social = () => {
   return (
     <section id="oursocial">
-
-      {/* start anchors */}
-      <div className="anchors">
-        <div className="contanchors">
-          <a href="#sectionskills">
-            <img className="anchortop" alt="" src="/img/anchors/topsocial.png" />
-          </a>
-          <a href="#contacts">
-            <img className="anchorbottom" alt="" src="/img/anchors/bottomsocial.png" />
-          </a>
-        </div>
-      </div>
-      {/* end anchors */}
+      <Anchors upperSectionId={'sectionskills'} lowerSectionId={'contacts'} />
 
       {/* start container */}
       <div className="container clearfix" style={{
@@ -29,17 +22,13 @@ const Social = () => {
         {/* end title section */}
 
         <div>
-          {/* start social icons */}
-          <div className="grid_2">
-            <a href="https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/">
-              <img className="rotate" alt="" src="/img/section-oursocial/facebook.png" />
-            </a>
-          </div>
-          <div className="grid_2">
-            <a href="https://www.instagram.com/_slatko_i_.tocka_/">
-              <img className="rotate" alt="" src="/img/section-oursocial/instagram.png" />
-            </a>
-          </div>
+          {socialMedia.map((media: Social) => (
+            <div className="grid_2">
+              <a href={media.url}>
+                <img className="rotate" alt="" src={media.icon} />
+              </a>
+            </div>
+          ))}
         </div>
 
         {/* end social icons */}
