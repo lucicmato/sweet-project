@@ -1,16 +1,11 @@
+import Anchors from '@/app/components/anchors';
+
 const Skills = () => {
 
   return (
     <section id="sectionskills">
 
-      {/*start anchors*/}
-      <div className="anchors">
-        <div className="contanchors">
-          <a href="#sectionteam"><img className="anchortop" alt="" src="/img/anchors/topskills.png" /></a>
-          <a href="#oursocial"><img className="anchorbottom" alt="" src="/img/anchors/bottomskills.png" /></a>
-        </div>
-      </div>
-      {/*end anchors*/}
+      <Anchors upperSectionId={'sectionteam'} lowerSectionId={'oursocial'} />
 
       {/*start container*/}
       <div className="container clearfix">
