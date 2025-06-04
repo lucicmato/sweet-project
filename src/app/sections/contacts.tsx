@@ -1,12 +1,15 @@
+import Image from 'next/image';
+
 const Contacts = () => {
   return (
     <footer id="contacts">
-
       <div className="topwaves"></div>
       {/*waves*/}
 
       {/*  /!*big marker*!/*/}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem' }}
+      >
         <h1>Slatko i točka</h1>
         <ul>
           <li>
@@ -16,9 +19,11 @@ const Contacts = () => {
             <p>Telefon: 0998335271</p> {/*insert your telephone number*/}
           </li>
           <li>
-            <p>Mail:
-              <a title="Kontaktiraj me ♥"
-                 href="mailto:slatkoitocka@gmail.com">slatkoitocka@gmail.com</a>
+            <p>
+              Mail:
+              <a title="Kontaktiraj me ♥" href="mailto:slatkoitocka@gmail.com">
+                slatkoitocka@gmail.com
+              </a>
             </p>
           </li>
         </ul>
@@ -27,11 +32,11 @@ const Contacts = () => {
 
       {/*little marker*/}
       <div id="littlemarker" className="rotate">
-        <a href="#"> <img alt="" src="/img/section-contact/littlemarker.png" /></a>
+        <a href="#">
+          <Image alt="" src="/img/section-contact/littlemarker.png" />
+        </a>
       </div>
       {/*end little marker*/}
-
-
     </footer>
   );
 };

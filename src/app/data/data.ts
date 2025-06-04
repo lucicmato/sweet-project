@@ -1,4 +1,4 @@
-import { PriceCard, ServiceItem, Social, TeamMember } from '@/app/types/types';
+import { PriceCard, ServiceItem, SocialMedia, TeamMember } from '@/app/types/types';
 
 export const servicesData: ServiceItem[] = [
   {
@@ -7,7 +7,8 @@ export const servicesData: ServiceItem[] = [
       'Naša slastičarska radionica s ljubavlju izrađuje domaće kolače prema tradicionalnim receptima i modernim\n' +
       '            slatkim trendovima.',
     imageSrc: '/img/section-services/service2.png',
-  }, {
+  },
+  {
     title: 'Najbolje torte',
     description:
       'Specijalizirani smo za izradu torti po narudžbi koje spajaju prepoznatljiv izgled i bogat okus.',
@@ -72,12 +73,7 @@ export const priceCardsData: PriceCard[] = [
     category: 'Deserti',
     description:
       'Naši deserti su prava mala remek-djela slatkog užitka! Svaki zalogaj donosi bogatstvo okusa, pažljivo odabranih sastojaka i domaću pripremu.',
-    items: [
-      'Kolači u čašici',
-      'Tiramisu',
-      'Panna cotta',
-      'Princes krafne',
-    ],
+    items: ['Kolači u čašici', 'Tiramisu', 'Panna cotta', 'Princes krafne'],
     buttonColor: 'yellow',
   },
   {
@@ -111,7 +107,7 @@ export const teamMembers: TeamMember[] = [
   },
 ];
 
-export const socialMedia: Social[] = [
+export const socialMedia: SocialMedia[] = [
   {
     platform: 'facebook',
     url: 'https://www.facebook.com/p/Slatko-i-to%C4%8Dka-100077599387672/',
@@ -121,8 +117,5 @@ export const socialMedia: Social[] = [
     platform: 'instagram',
     url: 'https://www.instagram.com/_slatko_i_.tocka_/',
     icon: '/img/section-oursocial/instagram.png',
-  }];
-
-
-
-
+  },
+];

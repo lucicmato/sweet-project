@@ -3,7 +3,7 @@ export type ServiceItem = {
   description: string;
   imageSrc: string;
   altText?: string;
-}
+};
 
 export type PriceCard = {
   imageSrc: string;
@@ -18,11 +18,11 @@ export type TeamMember = {
   name: string;
   description: string;
   imageSrc: string;
-  socialLinks: Social[];
+  socialLinks: SocialMedia[];
 };
 
-export type Social = {
+export type SocialMedia = {
   platform: string;
   url: string;
-  icon: string
-}
+  icon: string;
+};

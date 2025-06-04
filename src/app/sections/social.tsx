@@ -1,42 +1,42 @@
 import Anchors from '@/app/components/anchors';
+import Image from 'next/image';
 
 import { socialMedia } from '@/app/data/data';
-import { Social } from '@/app/types/types';
+import { SocialMedia } from '@/app/types/types';
 
 const Social = () => {
   return (
     <section id="oursocial">
-
       <Anchors upperSectionId={'sectionskills'} lowerSectionId={'contacts'} />
 
       {/* start container */}
-      <div className="container clearfix" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}>
-
+      <div
+        className="container clearfix"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         {/* start title section */}
         <div className="grid_12 titlesection">
           <h1>Pratite nas...</h1>
         </div>
         {/* end title section */}
 
-        <div>
-          {socialMedia.map((media: Social, index) => (
+        <div key="XXX">
+          {socialMedia.map((media: SocialMedia, index) => (
             <div className="grid_2" key={index}>
               <a href={media.url}>
-                <img className="rotate" alt="" src={media.icon} />
+                <Image className="rotate" alt="" src={media.icon} />
               </a>
             </div>
           ))}
         </div>
 
         {/* end social icons */}
-
       </div>
       {/* end container */}
-
     </section>
   );
 };
