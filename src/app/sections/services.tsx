@@ -1,5 +1,4 @@
 import { servicesData } from '@/app/data/data';
-import Image from 'next/image';
 
 const Services = () => {
   return (
@@ -16,7 +15,7 @@ const Services = () => {
 
         {servicesData.map((data, index) => (
           <div className="grid_4" key={index}>
-            <Image className="rotate" src={data.imageSrc} alt="Usluge" />
+            <img className="rotate" src={data.imageSrc} alt="Usluge" />
             <h2>{data.title}</h2>
             <p>{data.description}</p>
           </div>

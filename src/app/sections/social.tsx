@@ -1,5 +1,4 @@
 import Anchors from '@/app/components/anchors';
-import Image from 'next/image';
 
 import { socialMedia } from '@/app/data/data';
 import { SocialMedia } from '@/app/types/types';
@@ -24,11 +23,11 @@ const Social = () => {
         </div>
         {/* end title section */}
 
-        <div key="XXX">
+        <div key="media">
           {socialMedia.map((media: SocialMedia, index) => (
             <div className="grid_2" key={index}>
               <a href={media.url}>
-                <Image className="rotate" alt="" src={media.icon} />
+                <img className="rotate" alt="Media" src={media.icon} />
               </a>
             </div>
           ))}

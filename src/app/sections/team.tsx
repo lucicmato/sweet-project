@@ -1,5 +1,4 @@
 import Anchors from '@/app/components/anchors';
-import Image from 'next/image';
 
 import { teamMembers } from '@/app/data/data';
 import { SocialMedia, TeamMember } from '@/app/types/types';
@@ -20,7 +19,7 @@ const Team = () => {
         {teamMembers.map((member: TeamMember, index) => (
           <div className="grid_3" key={index}>
             <div className="avatar">
-              <Image className="opacity" alt="" src={member.imageSrc} />
+              <img className="opacity" alt="Avatar" src={member.imageSrc} />
             </div>
             <div className="team">
               <div className="bordertopteam"></div>
@@ -31,7 +30,7 @@ const Team = () => {
               {member.socialLinks.length > 0 &&
                 member.socialLinks.map((social: SocialMedia, index) => (
                   <a href={social.url} key={index}>
-                    <Image className="rotate" alt="" src={social.icon} />
+                    <img className="rotate" alt="Mreže" src={social.icon} />
                   </a>
                 ))}
             </div>

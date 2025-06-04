@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const Navigation = () => {
   return (
     <>
@@ -29,7 +27,7 @@ const Navigation = () => {
 
           {/* <!--start logo-->*/}
           <div className="grid_2 logo">
-            <Image alt="" src="/img/slatkoitocka/logo.png" />{' '}
+            <img alt="Logo" src="/img/slatkoitocka/logo.png" />
             {/*<!--Include your logo with size 180px X 239 px-->*/}
           </div>
           {/* <!--end logo-->*/}

@@ -1,5 +1,4 @@
 import Anchors from '@/app/components/anchors';
-import Image from 'next/image';
 
 const Skills = () => {
   return (
@@ -19,7 +18,7 @@ const Skills = () => {
           {/*skill*/}
           <div className="skilldescription">
             <div id="operator"></div>
-            <Image alt="" src="/img/section-skills/icon1.png" />
+            <img alt="Kolači" src="/img/section-skills/icon1.png" />
             <h2>Kolači</h2>
             <p>
               Naši kolači su čista čarolija u zalogaju – savršeno izbalansirani okusi, domaći
@@ -31,7 +30,7 @@ const Skills = () => {
 
           {/*skill*/}
           <div className="skilldescription">
-            <Image alt="" src="/img/section-skills/icon2.png" />{' '}
+            <img alt="Torte" src="/img/section-skills/icon2.png" />
             {/*you can edit the image, open the psd file for the vector image format*/}
             <h2>Torte</h2> {/*you can edit*/}
             <p>
@@ -45,7 +44,7 @@ const Skills = () => {
 
           {/*skill*/}
           <div className="skilldescription">
-            <Image alt="" src="/img/section-skills/icon3.png" />{' '}
+            <img alt="Deserti" src="/img/section-skills/icon3.png" />
             {/*you can edit the image, open the psd file for the vector image format*/}
             <h2>Deserti</h2> {/*you can edit*/}
             <p>
@@ -61,7 +60,7 @@ const Skills = () => {
 
         {/*start clip*/}
         <div className="grid_2 clip">
-          <Image className="opacity" alt="" src="/img/section-skills/clip.png" />
+          <img className="opacity" alt="Clip" src="/img/section-skills/clip.png" />
         </div>
         {/*end clip*/}
 

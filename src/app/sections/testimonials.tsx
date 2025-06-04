@@ -1,5 +1,4 @@
 import Anchors from '@/app/components/anchors';
-import Image from 'next/image';
 
 const Testimonials = () => {
   return (
@@ -12,7 +11,7 @@ const Testimonials = () => {
         <div className="container clearfix">
           {/*top quote*/}
           <div className="grid_12 topquote">
-            <Image alt="" src="/img/section-testimonials/topquote.png" />
+            <img alt="Quote" src="/img/section-testimonials/topquote.png" />
           </div>
           {/*top quote*/}
 
@@ -47,7 +46,7 @@ const Testimonials = () => {
 
           {/*bottom quote*/}
           <div className="grid_12 bottomquote">
-            <Image alt="" src="/img/section-testimonials/bottomquote.png" />
+            <img alt="Button" src="/img/section-testimonials/bottomquote.png" />
           </div>
           {/*bottom quote*/}
         </div>

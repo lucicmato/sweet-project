@@ -1,5 +1,4 @@
 import Anchors from '@/app/components/anchors';
-import Image from 'next/image';
 
 import { priceCardsData } from '@/app/data/data';
 import { PriceCard } from '@/app/types/types';
@@ -22,7 +21,7 @@ const Prices = () => {
         {priceCardsData.map((priceCardData: PriceCard, index) => (
           <div className="grid_3 expand" key={index}>
             <div className="logoprice">
-              <Image className="rotate" alt="" src={priceCardData.imageSrc} />
+              <img className="rotate" alt="Cijena" src={priceCardData.imageSrc} />
             </div>
             <div className="ribbon">
               <h2>

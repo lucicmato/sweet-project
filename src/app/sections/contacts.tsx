@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const Contacts = () => {
   return (
     <footer id="contacts">
@@ -33,7 +31,7 @@ const Contacts = () => {
       {/*little marker*/}
       <div id="littlemarker" className="rotate">
         <a href="#">
-          <Image alt="" src="/img/section-contact/littlemarker.png" />
+          <img alt="" src="/img/section-contact/littlemarker.png" />
         </a>
       </div>
       {/*end little marker*/}
