@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://slatkoitocka.hr/sitemap.xml
+
+//TODO: Nadopuni URL i završi prijavu u google services
